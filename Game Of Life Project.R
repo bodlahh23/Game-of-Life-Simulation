@@ -1,15 +1,15 @@
-# =========================================
+
 # Conway's Game of Life Simulation (R)
-# =========================================
+
 
 # Load required libraries
 library(ggplot2)
 install.packages("reshape2")
 library(reshape2)
 
-# -------------------------
+
 # Function: Count alive neighbors
-# -------------------------
+
 countNeighbors <- function(matrix, row, col) {
   alive_neighbors <- 0
   num_rows <- nrow(matrix)
@@ -32,9 +32,9 @@ countNeighbors <- function(matrix, row, col) {
   return(alive_neighbors)
 }
 
-# -------------------------
+
 # Function: Update the matrix for the next generation
-# -------------------------
+
 updateCells <- function(matrix) {
   new_matrix <- matrix
   num_rows <- nrow(matrix)
@@ -58,9 +58,9 @@ updateCells <- function(matrix) {
   return(new_matrix)
 }
 
-# -------------------------
+
 # Function: Visualize the matrix
-# -------------------------
+
 visualizeMatrix <- function(mat, generation=1) {
   df <- melt(mat)
   colnames(df) <- c("Y", "X", "Alive")
@@ -77,9 +77,9 @@ visualizeMatrix <- function(mat, generation=1) {
           panel.grid = element_blank())
 }
 
-# -------------------------
+
 # Function: Run simulation
-# -------------------------
+
 runSimulation <- function(initial_matrix, generations=10, pause=0.5) {
   current_matrix <- initial_matrix
   for (gen in 1:generations) {
@@ -89,10 +89,10 @@ runSimulation <- function(initial_matrix, generations=10, pause=0.5) {
   }
 }
 
-# -------------------------
+
 # Example: Initialize matrix
 # Random TRUE/FALSE cells
-# -------------------------
+
 set.seed(123) # for reproducibility
 initial_matrix <- matrix(sample(c(TRUE,FALSE), 25, replace=TRUE),
                          nrow=5, ncol=5)
